@@ -15,7 +15,7 @@ int main(void) {
     if (error) {
         printf("ERROR\n");
     } else {
-        output(seq);
+        printf("\nMAIN:");output(seq);
     }
       
     //free(seq);
@@ -33,22 +33,20 @@ void input(int* seq, int* len, int* error) {
             *error = 1;  // bad input
             break;
         }
-        printf("idx:%d, len:%d\n", idx, *len);
         seq[idx] = item;
         if (idx + 1 > *len) {
             *len += CHUNK_SIZE;
-            if  ( (seq = realloc(seq, *len * sizeof(int))) ) {
-                printf("seq[%d]==%d\n", idx, seq[idx]);
-            } else {
-                *error = 1;
+            if  ( !(seq = realloc(seq, *len * sizeof(int))) ) {
+               *error = 1;
                 break;
             }
         }
         idx++;
     }
+    printf("INPUT:");output(seq);
  
 }
 
 void output(int* seq) {
-    for (;*seq != -1; seq++) printf("%d ", *seq);
+    for (int* ptr = seq; *ptr != -1; ptr++) printf("%d ", *ptr);
 }

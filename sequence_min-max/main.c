@@ -26,7 +26,7 @@ int main(void) {
         if (idx + 1 > len) {
             len += CHUNK_SIZE;
             if  ( !(seq = realloc(seq, len * sizeof(int))) ) {
-               error = 1;  // bad alocation
+               error = 1;  // bad allocation
                break;
             }
         }

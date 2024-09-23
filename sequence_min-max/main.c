@@ -44,7 +44,6 @@ void input(int* seq, int* len, int* error) {
         idx++;
     }
     printf("INPUT:");output(seq);
- 
 }
 
 void output(int* seq) {

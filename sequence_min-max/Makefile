@@ -1,7 +1,7 @@
 .PHONY: run rebuild clean 
 
 CC = gcc
-FLAGC = -Wall -Wextra -Werror -std=c11
+FLAGC = -Wall -Wextra -Werror -std=c11 -g
 EXEC = a.out
 
 all: main
@@ -15,7 +15,7 @@ main.o: main.c
 rebuild: clean all
 
 clean:
-	rm *.o $(EXEC)
+	rm -rf *.o $(EXEC)
 
 run: rebuild
 	./$(EXEC)

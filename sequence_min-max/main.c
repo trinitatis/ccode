@@ -4,6 +4,7 @@
 #define CHUNK_SIZE 8
 
 void input(int* seq, int* error);
+void output(int* seq);
 
 int main(void) {
     int error = 0;
@@ -12,6 +13,7 @@ int main(void) {
     seq = malloc(sizeof(int) * CHUNK_SIZE);
 
     input(seq, &error);
+    output(seq);
     
     if (error) printf("ERROR\n");
        
@@ -20,10 +22,9 @@ int main(void) {
     return 0;
 }
 
-
 void input(int* seq, int* error) {
+    int* ptr = seq;
     int item = 0;
-    int idx = 0;
     char ch = 0;
 
     while ( item != -1 ) {
@@ -31,6 +32,15 @@ void input(int* seq, int* error) {
             *error = 1;
             break;
         }
-        seq[idx++] = item;
+        *ptr = item;
+        ptr++;
+    }
+}
+
+void output(int* seq) {
+
+    while (*(seq) != -1) {
+        printf("%d ", *seq);
+        seq++;
     }
 }

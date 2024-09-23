@@ -6,6 +6,7 @@
 void output(int* seq);
 int* min(int*seq);
 int* max(int*seq);
+void swap(int* a, int* b);
 
 int main(void) {
     int error = 0;
@@ -35,9 +36,8 @@ int main(void) {
     if (error) {
         printf("ERROR..\n");
     } else {
-        printf("min: %d", *min(seq));
-        printf("max: %d", *max(seq));
-        //output(seq);
+        swap(min(seq), max(seq));
+        output(seq);
     }
       
     free(seq);
@@ -73,4 +73,11 @@ int* max(int*seq) {
         }
     }
     return ptr_max;
+}
+
+void swap(int* a, int* b) {
+    int tmp = *a;
+
+    *a = *b;
+    *b = tmp;
 }

@@ -3,28 +3,34 @@
 
 #define CHUNK_SIZE 8
 
-void input(int* seq, int* error);
-void output(int* seq);
+struct Sequence {
+    int len;
+    int data[0];
+};
+
+void input(struct Sequence* seq, int* error);
+void output(struct Sequence* seq);
 
 int main(void) {
     int error = 0;
-    int* seq;
-    
-    seq = malloc(sizeof(int) * CHUNK_SIZE);
+    struct Sequence* seq = malloc(sizeof(struct Sequence) + sizeof(int) * CHUNK_SIZE);
+    seq->len = 0;
 
     input(seq, &error);
-    output(seq);
-    
-    if (error) printf("ERROR\n");
-       
+    if (error) {
+        printf("ERROR\n");
+    } else {
+        output(seq);
+    }
+      
     free(seq);
 
     return 0;
 }
 
-void input(int* seq, int* error) {
-    int* ptr = seq;
+void input(struct Sequence* seq, int* error) {
     int item = 0;
+    int idx = 0;
     char ch = 0;
 
     while ( item != -1 ) {
@@ -32,15 +38,14 @@ void input(int* seq, int* error) {
             *error = 1;
             break;
         }
-        *ptr = item;
-        ptr++;
+        seq->data[idx++] = item;
+        seq->len++;
     }
 }
 
-void output(int* seq) {
+void output(struct Sequence* seq) {
 
-    while (*(seq) != -1) {
-        printf("%d ", *seq);
-        seq++;
+    for (int* ptr = seq->data; *ptr != -1; ptr++) {
+        printf("%d ", *ptr);
     }
 }

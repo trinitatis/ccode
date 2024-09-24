@@ -4,8 +4,8 @@
 typedef char I_type;
 
 typedef struct Sequence_tag {
-    int     size;
-    I_type* seq;  
+    int size;
+    I_type* seq;
 } Sequence;
 
 Sequence input(void);

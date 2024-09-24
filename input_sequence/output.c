@@ -1,4 +1,5 @@
 #include <stdio.h>
+
 #include "input_sequence.h"
 
 void output(Sequence seq) {

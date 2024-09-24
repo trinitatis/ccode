@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+
 #include "input_sequence.h"
 
 #define INITIAL_SIZE 2

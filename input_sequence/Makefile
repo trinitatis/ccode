@@ -6,13 +6,16 @@ EXEC = a.out
 
 all: main
 
-main: main.o input.o
+main: main.o input.o output.o
 	$(CC) $^ -o $(EXEC)
 
 main.o: main.c
 	$(CC) $(FLAGC) -c $^
 
 input.o: input.c
+	$(CC) $(FLAGC) -c $^
+
+output.o: output.c
 	$(CC) $(FLAGC) -c $^
 
 rebuild: clean all

@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "input.h"
+#include "input_sequence.h"
 
 int main(void) {
     Sequence inp;
@@ -8,7 +8,7 @@ int main(void) {
     printf("Enter the sequence:\n");
     inp = input();
 
-    printf("\nSize: %d", inp.size);
+    output(inp);  // test output
 
     free(inp.seq);
 

@@ -9,4 +9,5 @@ That's all.
 Here I tried to create a monoid for strings.
 I also try *to prove* that it is a monoid:
  - сhecking the associativity of an operation;
- - сhecking that a certain identity element works as expected.
+ - сhecking that a certain identity element works as expected;
+ - it's possible to create a new value by combining values ​​using a monoid.
